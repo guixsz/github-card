@@ -55,6 +55,9 @@ function createUserCard(user) {
     const followingNumber = document.createElement('p')
     followingNumber.textContent = `Seguindo: ${user.following}`
 
+    const location = document.createElement('p')
+    location.textContent = user.location
+
     const followContainer = document.createElement('div')
     followContainer.className = 'followers'     
 
@@ -72,6 +75,7 @@ function createUserCard(user) {
             for(let data of datas.slice(0, 4)) {
                 const followers = document.createElement('img')
                 followers.src = `${data.avatar_url}`
+                followers.title = `${data.login}`
                 followContainer.appendChild(followers)
             }
         })
@@ -82,6 +86,7 @@ function createUserCard(user) {
     card.appendChild(bio)
     card.appendChild(followersNumber)
     card.appendChild(followingNumber)
+    card.appendChild(location)
     card.appendChild(followContainer)
 
     app.appendChild(card)
