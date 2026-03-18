@@ -12,7 +12,7 @@ function fetchGetGithubUser(userName) {
     fetch(`https://api.github.com/users/${userName}`)
         .then((response) => {
             if(!response.ok) {
-                console.error(error)
+                throw new Error('Usuário não encontrado')
             }
             return response.json()
         })
@@ -22,8 +22,7 @@ function fetchGetGithubUser(userName) {
         })
         .catch((error) => {
             console.log(error)
-            const app = document.getElementById('app')
-            app.innerHTML = `<p>Error ${error.message}</p>`
+            createErroCard(error)
         })
     
 }
@@ -92,3 +91,23 @@ function createUserCard(user) {
     app.appendChild(card)
 }
 
+function createErroCard(error) {
+    const app = document.getElementById('app')
+    const dErro = document.createElement('div')
+
+    dErro.className = 'erro_container'
+    dErro.classList.add('card')
+
+    const titleErro = document.createElement('h2')
+    titleErro.textContent = `${error.message}`
+    titleErro.className = 'title_erro'
+
+    const pErro = document.createElement('p')
+    pErro.textContent = 'Digite um nome de usuário válido'
+    pErro.className = 'text_erro'
+    
+    dErro.appendChild(titleErro)
+    dErro.appendChild(pErro)
+
+    app.appendChild(dErro)
+}
