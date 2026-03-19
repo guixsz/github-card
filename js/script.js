@@ -1,5 +1,5 @@
 const button = document.querySelector('.button')
-
+const listLogin = []
 
 button.addEventListener('click', () => {
     const inputUser = document.querySelector('.user').value
@@ -18,6 +18,13 @@ function fetchGetGithubUser(userName) {
         })
         .then((user) => {
             console.log('user', user)
+            for(list of listLogin) {
+                if(user.login == list) {
+                    throw new Error('Usuário já encontrado')
+                }
+            }
+            listLogin.push(user.login)
+            console.log(listLogin)
             createUserCard(user)
         })
         .catch((error) => {
@@ -43,6 +50,7 @@ function createUserCard(user) {
     name.className = 'name_title'
 
     const login = document.createElement('p')
+    login.className = 'user_login'
     login.textContent = `@${user.login}`
 
     const bio = document.createElement('p')

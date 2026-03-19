@@ -1,5 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .card {
-    padding: 15px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 40px; 
     border: 1px solid #ddd;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -15,8 +25,28 @@
 }
 
 .container_header {
-    margin: 0 auto;
-    width: 45em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px
+}
+
+.fa-solid {
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+    color: #4f46e5;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.fa-solid:hover {
+    box-shadow: 0 5px 15px rgba(79, 79, 299, 0.4);
 }
 
 .avatar {       
