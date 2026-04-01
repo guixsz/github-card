@@ -147,7 +147,6 @@
 .tooltip_container {
     position: relative;
     display: inline-block;
-    margin-right: 15px;
 }
 
 .tooltip_text {
